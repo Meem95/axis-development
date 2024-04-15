@@ -1,4 +1,6 @@
+import { Link } from 'react-router-dom';
 import logo from '../../../assets/images/logo.png';
+import userDefaultPic from '../../../assets/images/user.png';
 const Navbar = () => {
   return (
       <div className="navbar ">
@@ -36,8 +38,6 @@ const Navbar = () => {
             </ul>
           </div>
          
-          {/* <a className="btn btn-ghost text-xl">Atlantic Town</a> */}
-          
           <img
             src={logo}
             className="max-w-20 bg-black p-2 rounded-lg shadow-2xl"
@@ -58,7 +58,14 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Login</a>
+        <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                    <div className="w-10 rounded-full">
+                        <img src={userDefaultPic} />
+                    </div>
+                </label>
+                <Link to="/login">
+                            <button className="btn">Login</button>
+                        </Link>
         </div>
       </div>
   

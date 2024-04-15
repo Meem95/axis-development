@@ -1,3 +1,4 @@
+import Clients from "../Clients/Clients";
 import Feature from "../Features/Feature";
 import Slider from "../Slider/Slider";
 import Subscription from "../Subscription/Subscription";
@@ -14,6 +15,9 @@ const Home = () => {
         </div>
        
            <Subscription></Subscription>
+           <div className="mb-5">
+            <Clients></Clients>
+           </div>
         </div>
     );
 };
