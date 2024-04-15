@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import logo from '../../../assets/images/logo.png';
 import userDefaultPic from '../../../assets/images/user.png';
 const Navbar = () => {
@@ -25,16 +25,17 @@ const Navbar = () => {
             <ul
               tabIndex={0}
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
-            >
-                 <li className="font-bold text-xl ">
-              <a>Home</a>
-            </li>
-            <li className="font-bold text-xl ">
-              <a>About Us</a>
-            </li>
-            <li className="font-bold text-xl ">
-              <a>Contact Us</a>
-            </li>
+            > 
+             <NavLink to='/'  className={({isActive})=> isActive? 'text-primary font-bold btn-outline btn-success btn ' : 'font-bold text-success mt-4'}> 
+            Home
+          </NavLink>
+             <NavLink to='/about'  className={({isActive})=> isActive? 'text-primary font-bold btn-outline btn-success btn ' : 'font-bold text-success mt-4'}> 
+             About Us
+          </NavLink>
+             <NavLink to='/contact'  className={({isActive})=> isActive? 'text-primary font-bold btn-outline btn-success btn ' : 'font-bold text-success mt-4'}> 
+             Contact Us
+          </NavLink>
+           
             </ul>
           </div>
          
@@ -45,16 +46,16 @@ const Navbar = () => {
 
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
-            <li className="font-bold text-xl ">
-              <a>Home</a>
-            </li>
-            <li className="font-bold text-xl ">
-              <a>About Us</a>
-            </li>
-            <li className="font-bold text-xl ">
-              <a>Contact Us</a>
-            </li>
+          <ul className="menu menu-horizontal px-1 space-x-3">
+          <NavLink to='/'  className={({isActive})=> isActive? 'text-primary font-bold btn-outline btn-success btn ' : 'font-bold text-success mt-4'}> 
+            Home
+          </NavLink>
+             <NavLink to='/about'  className={({isActive})=> isActive? 'text-primary font-bold btn-outline btn-success btn ' : 'font-bold text-success mt-4'}> 
+             About Us
+          </NavLink>
+             <NavLink to='/contact'  className={({isActive})=> isActive? 'text-primary font-bold btn-outline btn-success btn ' : 'font-bold text-success mt-4'}> 
+             Contact Us
+          </NavLink>
           </ul>
         </div>
         <div className="navbar-end">
