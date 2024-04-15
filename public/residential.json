@@ -1,0 +1,85 @@
+[
+    {
+        "id": 1,
+        "estate_title": "Modern Apartment in Downtown",
+        "build" : " 7 years" ,
+        "segment_name": "Apartment",
+        "description": "Beautifully designed modern apartment with stunning city views.",
+        "price": "$500,000",
+        "status": "sale",
+        "area": "1500 sq ft",
+        "image": "https://i.ibb.co/vPY3Vhm/news-21-370x270.jpg",
+        "location": "Downtown, City Center",
+        "facilities": ["living room", "Gym", "Swimming pool"]
+        }
+        ,
+        {
+        "id": 2,
+        "estate_title": "Cozy Townhouse in Suburban Neighborhood",
+        "build" : " 5 years" ,
+        "segment_name": "Townhouse",
+        "description": "Charming townhouse with a private backyard and community amenities.",
+        "price": "$350,000",
+        "status": "rent",
+        "area": "1800 sq ft",
+        "image": "https://i.ibb.co/cgnZGBQ/news-23-370x270.jpg",
+        "location": "Suburban Neighborhood, Greenwood",
+        "facilities": [" backyard", "Community park", "Gym"]
+        }
+        ,
+        {
+        "id": 3,
+        "estate_title": "Luxury Condo with Ocean Views",
+        "build" : " 2 years" ,
+        "segment_name": "apartments",
+        "description": "Spacious condo with breathtaking ocean views and resort-style amenities.",
+        "price": "$1,200,000",
+        "status": "sale",
+        "area": "2200 sq ft",
+        "image": "https://i.ibb.co/jyY90Yw/002-370x270.jpg",
+        "location": "Beachfront, Oceanview Drive",
+        "facilities": [" balcony", " pool", "Tennis courts"]
+        }
+        ,
+        {
+        "id": 4,
+        "estate_title": "Stylish Loft in Trendy Neighborhood",
+        "build" : "7years" ,
+        "segment_name": "vacation rentals",
+        "description": "Industrial-style loft with exposed brick walls and high ceilings.",
+        "price": "$600,000",
+        "status": "sale",
+        "area": "1600sq ft",
+        "image": "https://i.ibb.co/pQ4BvYx/news-20-370x270.jpg",
+        "location": "Arts District, Downtown",
+        "facilities": ["Open floor ", "Rooftop ", "Gym"]
+        }
+        ,
+        {
+        "id": 5,
+        "estate_title": "Family-Friendly House with Spacious Yard",
+        "build" : "1 years" ,
+        "segment_name": "Single-family ",
+        "description": "Comfortable family home with plenty of space for kids and pets to play.",
+        "price": "$450,000",
+        "status": "sale",
+        "area": "2000 sq ft",
+        "image": "https://i.ibb.co/k0D7TSg/12-370x270.jpg",
+        "location": "Suburban Neighborhood, Oakwood",
+        "facilities": [" backyard", "Playground", " pool"]
+        }
+        ,
+        {
+        "id": 6,
+        "estate_title": "Luxury Penthouse in Skyline Tower",
+        "build" : "4years" ,
+        "segment_name": "vacation rentals",
+        "description": "Elegant penthouse with panoramic views of the city skyline.",
+        "price": "$2,500,000",
+        "status": "rent",
+        "area": "3000sq ft",
+        "image": "https://i.ibb.co/WVqhbGf/property-18-370x270.jpg",
+        "location": "Skyline Tower, Central Business District",
+        "facilities": [" elevator", " garden", "Concierge service"]
+        }
+]

@@ -12,8 +12,7 @@ const Feature = () => {
 				<span className="text-3xl uppercase text-black">WELCOME</span>
 				<h3 className="text-4xl font-bold text-black">WE ARE CREATIVE BUILDING - DESIGN COMPANY</h3>
 				<p className="my-6 text-black">We Are Creative Building, a design company dedicated to crafting innovative spaces and structures.Transforming ideas into reality, our design company brings imagination to life through architectural ingenuity.</p>
-				<button type="button" className="self-start btn bg-[#ECECFF] text-black btn-warning btn-wide">About </button>
-                {/* <button type="button" className="btn btn-outline btn-warning btn-wide">Wide</button> */}
+				<button className="btn btn-wide btn-xs sm:btn-sm md:btn-md lg:btn-md bg-[#ECECFF] text-black font-bold">About</button>
 			</div>
 		</div>
 		

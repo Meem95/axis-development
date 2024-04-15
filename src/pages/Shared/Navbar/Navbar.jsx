@@ -1,7 +1,16 @@
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../../../assets/images/logo.png';
 import userDefaultPic from '../../../assets/images/user.png';
+import { useContext } from 'react';
+import { AuthContext } from '../../../providers/AuthProvider';
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleSignOut = () => {
+      logOut()
+          .then()
+          .catch()
+  }
   return (
       <div className="navbar ">
         <div className="navbar-start">
@@ -26,13 +35,13 @@ const Navbar = () => {
               tabIndex={0}
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
             > 
-             <NavLink to='/'  className={({isActive})=> isActive? 'text-primary font-bold btn-outline btn-success btn ' : 'font-bold text-success mt-4'}> 
+             <NavLink to='/'  className={({isActive})=> isActive? 'text-[#2f400e] font-bold btn-outline btn-[#2f400e] btn ' : 'font-bold text-[#2f400e] mt-4'}> 
             Home
           </NavLink>
-             <NavLink to='/about'  className={({isActive})=> isActive? 'text-primary font-bold btn-outline btn-success btn ' : 'font-bold text-success mt-4'}> 
+             <NavLink to='/about'  className={({isActive})=> isActive? 'text-[#2f400e] font-bold btn-outline btn-[#2f400e] btn ' : 'font-bold text-[#2f400e] mt-4'}> 
              About Us
           </NavLink>
-             <NavLink to='/contact'  className={({isActive})=> isActive? 'text-primary font-bold btn-outline btn-success btn ' : 'font-bold text-success mt-4'}> 
+             <NavLink to='/contact'  className={({isActive})=> isActive? 'text-[#2f400e] font-bold btn-outline btn-[#2f400e] btn ' : 'font-bold text-[#2f400e] mt-4'}> 
              Contact Us
           </NavLink>
            
@@ -47,13 +56,13 @@ const Navbar = () => {
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 space-x-3">
-          <NavLink to='/'  className={({isActive})=> isActive? 'text-primary font-bold btn-outline btn-success btn ' : 'font-bold text-success mt-4'}> 
+          <NavLink to='/'  className={({isActive})=> isActive? 'text-[#2f400e] font-bold btn-outline btn-[#2f400e] btn ' : 'font-bold text-[#2f400e] mt-4'}> 
             Home
           </NavLink>
-             <NavLink to='/about'  className={({isActive})=> isActive? 'text-primary font-bold btn-outline btn-success btn ' : 'font-bold text-success mt-4'}> 
+             <NavLink to='/about'  className={({isActive})=> isActive? 'text-[#2f400e] font-bold btn-outline btn-[#2f400e] btn ' : 'font-bold text-[#2f400e] mt-4'}> 
              About Us
           </NavLink>
-             <NavLink to='/contact'  className={({isActive})=> isActive? 'text-primary font-bold btn-outline btn-success btn ' : 'font-bold text-success mt-4'}> 
+             <NavLink to='/contact'  className={({isActive})=> isActive? 'text-[#2f400e] font-bold btn-outline btn-[#2f400e] btn ' : 'font-bold text-[#2f400e] mt-4'}> 
              Contact Us
           </NavLink>
           </ul>
@@ -64,9 +73,16 @@ const Navbar = () => {
                         <img src={userDefaultPic} />
                     </div>
                 </label>
-                <Link to="/login">
+                {
+                    user ?
+                        <button onClick={handleSignOut} className="btn">Sign Out</button>
+                        :
+                        <Link to="/login">
                             <button className="btn">Login</button>
                         </Link>
+                }
+
+             
         </div>
       </div>
   
