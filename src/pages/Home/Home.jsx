@@ -1,8 +1,11 @@
+import Slider from "../Slider/Slider";
+
 
 const Home = () => {
     return (
-        <div>
-            <h1 className="text-3xl font-poppins font-bold">this is home</h1>
+        <div className=" m-0 p-0">
+       <Slider></Slider>
+           
         </div>
     );
 };
