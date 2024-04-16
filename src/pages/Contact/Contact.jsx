@@ -82,7 +82,7 @@ const Contact = () => {
               </label>
               <button
                 type="button"
-                className="self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 btn  btn-success text-white  focus:ring-violet-400 "
+                className="self-center px-8 py-3 text-lg rounded  hover:ring  btn  bg-[#2f400e] hover:bg-[#2f400e] text-white "
               >
                 Submit
               </button>

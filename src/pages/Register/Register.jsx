@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { useContext } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 
@@ -19,6 +19,10 @@ const Register = () => {
     //create user
     createUser(email, password)
         .then(result => {
+          updateUserProfile( name,photo)
+          .then(()=> {
+            Navigate(form)
+          })
             console.log(result.user)
         })
         .catch(error => {

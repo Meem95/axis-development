@@ -8,6 +8,8 @@ import About from "../pages/About/About";
 import Contact from "../pages/Contact/Contact";
 import ResidentialDetails from "../pages/ResidentialDetails/ResidentialDetails";
 import PrivateRoute from "./PrivateRoute";
+import EditProfile from "../pages/EditProfile/EditProfile";
+import Profile from "../pages/Profile/Profile";
 
 const router = createBrowserRouter ([
     {
@@ -30,9 +32,20 @@ const router = createBrowserRouter ([
 
             {
                 path: '/residential/:id', 
-                element: <PrivateRoute><ResidentialDetails></ResidentialDetails></PrivateRoute>
+                element: <PrivateRoute><ResidentialDetails></ResidentialDetails></PrivateRoute>,
+                loader: () => fetch('/residential.json')
             },
             
+            {
+                path: '/profile', 
+                element: <PrivateRoute><Profile></Profile></PrivateRoute>,
+               
+            },
+            {
+                path: '//edit-profile', 
+                element: <PrivateRoute><EditProfile></EditProfile></PrivateRoute>,
+               
+            },
             {
                 path: '/login',
                 element: <Login></Login>
