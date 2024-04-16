@@ -5,6 +5,8 @@ import { AuthContext } from "../../providers/AuthProvider";
 import { GithubAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 import app from "../../firebase/firebase.config";
 import { GoogleAuthProvider } from "firebase/auth";
+
+import 'animate.css';
 const Login = () => {
   const [user,setUser] = useState(null);
   const [showPassword, setShowPassword] = useState(false);
@@ -71,7 +73,7 @@ const Login = () => {
     <div>
       <div>
         <div className="px-8 py-2 bg-[#1313130D] text-black ">
-          <div className="py-2 font-bold text-center text-2xl">
+          <div className="py-2 font-bold text-center text-2xl animate__animated animate__bounce">
             <span>Please Login</span>
           </div>
         </div>

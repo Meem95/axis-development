@@ -1,10 +1,10 @@
 
-
+import 'animate.css';
 const About = () => {
     return (
         <div className="min-h-screen max-w-7xl mx-auto mt-16">
         <div className="px-8 py-2 bg-[#1313130D] text-black ">
-          <div className="py-2 font-bold text-center text-3xl">
+          <div className="py-2 font-bold text-center text-3xl animate__animated animate__bounce">
             <span>About Book Vibe</span>
           </div>
         </div>

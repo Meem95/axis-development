@@ -3,6 +3,7 @@ import 'aos/dist/aos.css';
 import { useEffect, useState, useContext } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 
+import 'animate.css';
 const EditProfile = () => {
   const { user } = useContext(AuthContext);
   const [name, setName] = useState(user.displayName || '');
@@ -32,7 +33,7 @@ const EditProfile = () => {
         className="max-w-md w-full p-6 space-y-4 bg-gray-900 text-gray-100 border border-gray-800 rounded-lg shadow-lg"
         data-aos="fade-up"
       >
-        <h2 className="text-lg font-semibold sm:text-2xl">Edit Profile</h2>
+        <h2 className="text-lg font-semibold sm:text-2xl animate__animated animate__bounce">Edit Profile</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label htmlFor="name" className="block text-sm font-medium">

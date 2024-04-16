@@ -1,10 +1,14 @@
 
+import 'animate.css';
 import Marquee from "react-fast-marquee";
+
+
+
 const Clients = () => {
     return (
         <div> 
-        <div className="my-6 ">
-            <h2 className="text-4xl text-center">Our Clients</h2>
+        <div className="my-6 animate__animated animate__bounce">
+            <h2 className="text-4xl text-center ">Our Clients</h2>
         </div>
         <Marquee pauseOnHover={true} speed={100}>
        <img src='https://i.ibb.co/429fqZB/1.png' style={{ border: "2px solid black", marginRight: "20px" }} alt="Image 1" />

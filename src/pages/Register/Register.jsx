@@ -2,6 +2,7 @@ import { Link, Navigate } from "react-router-dom";
 import { useContext } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 
+import 'animate.css';
 const Register = () => {
  
     const { createUser } = useContext(AuthContext);
@@ -32,8 +33,8 @@ const Register = () => {
   return (
     <div>
         <div className="px-8 py-2 bg-[#1313130D] text-black ">
-          <div className="py-2 font-bold text-center text-2xl">
-            <span>Please Register</span>
+          <div className="py-2 font-bold text-center text-2xl animate__animated animate__bounce">
+            <span >Please Register</span>
           </div>
         </div>
         <form onSubmit={handleRegister} className=" md:w-3/4 lg:w-1/2 mx-auto">
