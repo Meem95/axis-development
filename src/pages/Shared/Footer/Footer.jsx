@@ -1,6 +1,25 @@
 
- import logo from '../../../assets/images/logo.png';
+ import { Link } from 'react-router-dom';
+import logo from '../../../assets/images/logo.png';
+import { useEffect, useState } from 'react';
 const Footer = () => {
+	const [title, setTitle] = useState([]);
+	useEffect(() => {
+
+	  fetch("residential.json")
+		.then((response) => response.json())
+		.then((data) => setTitle(data));
+	}, []);
+	const truncateString = (str, numWords) => {
+        const words = str.split(' ');
+        if (words.length > numWords) {
+            return words.slice(0, numWords).join(' ') + '...';
+        } else {
+            return str;
+        }
+    };
+
+
     return (
         <div>
            <footer className="px-4 divide-y bg-gray-800 text-white">
@@ -15,39 +34,47 @@ const Footer = () => {
 		</div>
 		<div className="grid grid-cols-2 text-sm gap-x-3 gap-y-8 lg:w-2/3 sm:grid-cols-4">
 			<div className="space-y-3">
-				<h3 className="tracking-wide uppercase text-white">Product</h3>
+				<h3 className="tracking-wide uppercase text-white font-bold">Residential Project</h3>
 				<ul className="space-y-1">
-					<li className='text-white'>
-						Features
-					</li>
+				{title.map((residential) => (
+					<li key={residential.id} cards={residential}><Link to={`/residential/${residential.id}`}>{truncateString(residential.estate_title, 2)}</Link> </li>
+                                ))}
+					
 					
 				</ul>
 			</div>
 			<div className="space-y-3">
-				<h3 className="tracking-wide uppercase text-gray-50">Company</h3>
+				<h3 className="tracking-wide uppercase text-gray-50 font-bold">Company</h3>
 				<ul className="space-y-1">
-					<li className='text-white'>
+				<Link to="/about"><li className='text-white'>
 						About Us
-					</li>
-					<li className='text-white'>
+					</li></Link>
+				<Link to="/contact"><li className='text-white'>
 						Contact Us
-					</li>
+					</li></Link>
+					
+					
 				</ul>
 			</div>
 			<div className="space-y-3">
-				<h3 className="uppercase text-gray-50">To Be A Member</h3>
+				<h3 className="uppercase text-gray-50 font-bold">To Be A Member</h3>
 				<ul className="space-y-1">
+				<Link to="/login">
 					<li className='text-white'>
 						Login
 					</li>
+					</Link>
+					<Link to="/register">
 					<li className='text-white'>
 						Sign In
 					</li>
+					</Link>
+					
 					
 				</ul>
 			</div>
 			<div className="space-y-3">
-				<div className="uppercase text-gray-50">Social media</div>
+				<div className="uppercase text-gray-50 font-bold">Social media</div>
 				<div className="flex justify-start space-x-3">
 					<a rel="noopener noreferrer" href="#" title="Facebook" className="flex items-center p-1">
 						<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 32 32" className="w-5 h-5 fill-current">
@@ -66,7 +93,7 @@ const Footer = () => {
 			</div>
 		</div>
 	</div>
-	<div className="py-6 text-sm text-center text-gray-400">© 2024 Company Co. All rights reserved.</div>
+	<div className="py-6 text-sm text-center text-gray-400">© 2024 Axis. All rights reserved.</div>
 </footer>
         </div>
     );
