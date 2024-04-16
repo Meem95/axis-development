@@ -16,6 +16,6 @@ Features:
 NPM Package Name:
 1.AOS
 2.Swiper Slider
-3.React Hook Form
+3.Animate.css
 4.React Leaflet
 

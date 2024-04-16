@@ -80,6 +80,30 @@ const Navbar = () => {
               >
                 Contact Us
               </NavLink>
+              {
+                
+            !user ? ( <NavLink
+               to="/edit-profile"
+                className={({ isActive }) =>
+                  isActive
+                    ? 'text-[#2f400e] font-bold btn-outline btn-[#2f400e] btn hidden'
+                    : 'font-bold text-[#2f400e] mt-4 hidden'
+                }
+              >
+                Update Profile
+              </NavLink>) :
+              ( <NavLink
+               to="/edit-profile"
+                className={({ isActive }) =>
+                  isActive
+                    ? 'text-[#2f400e] font-bold btn-outline btn-[#2f400e] btn '
+                    : 'font-bold text-[#2f400e] mt-4 '
+                }
+              >
+                Update Profile
+              </NavLink>)
+              }
+             
             </ul>
           )}
         </div>
@@ -119,6 +143,29 @@ const Navbar = () => {
           >
             Contact Us
           </NavLink>
+          {
+            !user ?(<NavLink
+            to="/edit-profile"
+            className={({ isActive }) =>
+              isActive
+                ? 'text-[#2f400e] font-bold btn-outline btn-[#2f400e] btn hidden'
+                : 'font-bold text-[#2f400e] mt-4 hidden'
+            }
+          >
+              Update Profile
+          </NavLink>):<NavLink
+            to="/edit-profile"
+            className={({ isActive }) =>
+              isActive
+                ? 'text-[#2f400e] font-bold btn-outline btn-[#2f400e] btn  '
+                : 'font-bold text-[#2f400e] mt-4 '
+            }
+          >
+              Update Profile
+          </NavLink>
+
+          }
+          
         </ul>
       </div>
 
