@@ -1,7 +1,13 @@
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
+AOS.init();
+
 const Subscription = () => {
   return (
     <div
-      className="w-full bg-gray-500 mb-14 bg-no-repeat bg-cover "
+      className="w-full bg-gray-500 mb-14 bg-no-repeat bg-cover " data-aos="fade-down"
+     data-aos-easing="linear"
+     data-aos-duration="1500"
       style={{
         backgroundImage: "url('https://i.ibb.co/VYYFDq3/real-estate-agent-offer-house-600nw-363324191.webp')",
       }}

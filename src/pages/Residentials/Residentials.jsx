@@ -3,6 +3,9 @@ import { BiCategoryAlt } from "react-icons/bi";
 import { CiSquareAlert } from "react-icons/ci";
 import { CiLocationOn } from "react-icons/ci";
 import { Link } from "react-router-dom";
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
+AOS.init();
 
 const Residentials  = ({ cards }) => {
     const { estate_title, facilities, image, description, id, segment_name, area, price ,status, build, location} =
@@ -10,12 +13,12 @@ const Residentials  = ({ cards }) => {
     return (
         <div>
      
-        <div className="md:w-1/3 lg:w-1/4 p-4">
+        <div className="md:w-1/3 lg:w-1/4 p-4 " data-aos="zoom-in" data-aos-duration="1500">
           <div className="card lg:w-96 bg-base-100 shadow-xl">
             <div className="indicator">
               <span className="indicator-item indicator-top badge-neutral bg-[#2f400e] text-white rounded-2xl p-1 w-16 mt-3 font-bold  text-center">{status}</span>
-              <figure>
-                <img src={image} alt="Shoes" />
+              <figure >
+                <img  src={image} alt="Shoes" />
               </figure>
             </div>
             <div className="card-actions justify-evenly bg-[#2f400e] p-1">

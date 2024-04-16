@@ -1,5 +1,5 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-
+import { FaEye } from "react-icons/fa";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import { GithubAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
@@ -7,6 +7,7 @@ import app from "../../firebase/firebase.config";
 import { GoogleAuthProvider } from "firebase/auth";
 const Login = () => {
   const [user,setUser] = useState(null);
+  const [showPassword, setShowPassword] = useState(false);
   const { signIn } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
@@ -63,7 +64,9 @@ const Login = () => {
             console.error(error);
         })
   };
-
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
   return (
     <div>
       <div>
@@ -72,47 +75,44 @@ const Login = () => {
             <span>Please Login</span>
           </div>
         </div>
-        {  user &&  <div className="text-center">
-         
-           
-            <h3> name: {user .displayName}</h3>
-            <h3> email: {user .email}</h3>
-            <img src={user.photoURL}></img>
-        
-        </div>
-      }
+
         <form onSubmit={handleLogin} className=" md:w-3/4 lg:w-1/2 mx-auto">
-          <div className="form-control">
-            <label className="label">
-              <span className="label-text">Email</span>
+        <div className="mb-6">
+            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
+              Email
             </label>
             <input
               type="email"
               required
               name="email"
+              id="email"
               placeholder="Email"
-              className="input input-bordered "
+              className="w-full px-3 py-2 rounded-md border border-gray-400 focus:outline-none focus:border-indigo-500"
             />
           </div>
-          <div className="form-control">
-            <label className="label">
-              <span className="label-text">Password</span>
+          <div className="mb-6 relative">
+            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
+              Password
             </label>
             <input
-              type="password"
+              type={showPassword ? "text" : "password"}
               required
               name="password"
+              id="password"
               placeholder="Password"
-              className="input input-bordered"
+              className="w-full px-3 py-2 rounded-md border border-gray-400 focus:outline-none focus:border-indigo-500"
             />
-            <label className="label">
-              <a href="#" className="label-text-alt link link-hover">
-                Forgot password?
-              </a>
-            </label>
+            <button
+              type="button"
+              onClick={togglePasswordVisibility}
+              className="absolute inset-y-0 right-0 flex items-center mt-5 p-3 text-gray-600 hover:text-gray-900"
+            >
+              {showPassword ? <FaEye /> : <FaEye />}
+            </button>
           </div>
-          <div className="form-control mt-6">
-            <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg bg-[#2f400e] text-white font-bold">Login</button>
+          <div className="form-control my-6">
+            <button className="btn  sm:btn-sm md:btn-md lg:btn-lg bg-[#ECECFF] text-black font-bold">Login</button>
+            
           </div>
         </form>
         <div className="flex justify-center space-x-4">
@@ -128,7 +128,7 @@ const Login = () => {
 			</svg>
 		</button>
 	</div>
-        <p className="text-center mt-4">
+        <p className="text-center mt-4 mb-6">
           Do not have an account{" "}
           <Link className="text-blue-600 font-bold" to="/register">
             Register
