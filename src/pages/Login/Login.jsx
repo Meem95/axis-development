@@ -84,13 +84,13 @@ const Login = () => {
       <Helmet>
    <title> Axis | Login</title>
    </Helmet>
-        <div className="px-8 py-2 bg-[#1313130D] text-black ">
+        <div className="  px-8 py-2 bg-[#1313130D] text-black ">
           <div className="py-2 font-bold text-center text-2xl animate__animated animate__bounce">
             <span>Please Login</span>
           </div>
         </div>
 
-        <form onSubmit={handleLogin} className=" md:w-3/4 lg:w-1/2 mx-auto">
+        <form onSubmit={handleLogin} className=" md:w-3/4 lg:w-1/2 mx-auto mt-6  p-4">
         <div className="mb-6">
             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
               Email
@@ -119,7 +119,7 @@ const Login = () => {
             <button
               type="button"
               onClick={togglePasswordVisibility}
-              className="absolute inset-y-0 right-0 flex items-center mt-5 p-3 text-gray-600 hover:text-gray-900"
+              className="absolute inset-y-0 right-0 flex items-center mt-6 p-3 text-gray-600 hover:text-gray-900"
             >
               {showPassword ? <FaEye /> : <FaEye />}
             </button>
@@ -145,7 +145,7 @@ const Login = () => {
         <p className="text-center mt-4 mb-6">
           Do not have an account{" "}
           <Link className="text-blue-600 font-bold" to="/register">
-            Register
+            Registration
           </Link>
         </p>
       </div>

@@ -9,6 +9,7 @@ const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   const [showDropdown, setShowDropdown] = useState(false);
   const [dropdownLeft, setDropdownLeft] = useState(null);
+  const [showDropdownRight, setShowDropdownRight] = useState(false);
 
   const handleSignOut = () => {
     logOut()
@@ -48,7 +49,7 @@ const Navbar = () => {
           </div>
           {showDropdown && (
             <ul
-              className="menu menu-sm dropdown-content z-30 mt-3 p-2 shadow bg-base-100 rounded-box"
+              className="menu menu-sm  dropdown-content z-30 mt-3 p-2 shadow bg-base-100 rounded-box absolute"
               style={{ left: dropdownLeft }}
             >
               <NavLink
@@ -73,7 +74,8 @@ const Navbar = () => {
               </NavLink>
               {
                 ! user ?
-                <NavLink to="/login" className={({ isActive }) =>
+                <NavLink to="/login" 
+                className={({ isActive }) =>
                   isActive
                   ? ' font-bold mt-4 '
                     : 'font-bold  mt-4'
@@ -148,7 +150,7 @@ const Navbar = () => {
                 : 'font-bold text-[#2f400e] mt-4'
             }
           >
-            Home
+            Homeww
           </NavLink>
           <NavLink
             to="/about"
@@ -232,7 +234,7 @@ const Navbar = () => {
           <label
               tabIndex={0}
               className="btn btn-ghost btn-circle avatar"
-              onClick={() => toggleDropdown(-120)}
+              onClick={() => setShowDropdownRight(!showDropdownRight)}
             
             >
               <div className="w-16 rounded-full my-anchor-element">
@@ -245,22 +247,25 @@ const Navbar = () => {
             <Tooltip anchorSelect=".my-anchor-element" className='z-30'  content= {user?.displayName || 'User'}>
              
              </Tooltip>
-            
-            {showDropdown && (
-              <ul
-                className="menu menu-sm dropdown-content z-30 mt-3 bg-[#1313130D] w-36 p-2 shadow bg-base-100 rounded-box"
-                style={{ left: dropdownLeft }}
-              >
-                <NavLink to="/profile" className="font-bold text-[#2f400e] mt-4">
+           
+            {showDropdownRight && (
+              <div className="absolute z-10 -left-[120px] bg-white p-5 border-gray-600 shadow-xl rounded-lg">
+                <ul>
+                <li className="border-b-2  border-red-200"><NavLink to="/profile" className=" text-[#2f400e] mt-4">
                   {user?.displayName || "User" }
-                </NavLink>
-                <NavLink to="/edit-profile" className="font-bold text-[#2f400e] mt-4">
+                </NavLink></li>
+                <li className="border-b-2 my-4 border-red-200">  <NavLink to="/edit-profile" className=" text-[#2f400e] mt-4">
                   Edit Profile
-                </NavLink>
-                <button onClick={handleSignOut} className="btn font-bold text-[#2f400e] mt-4">
-                  Sign Out
-                </button>
-              </ul>
+                </NavLink></li>
+                <li > <button onClick={handleSignOut} className="btn  text-[#2f400e] ">
+                  Logout
+                </button></li>
+                
+              
+               
+                </ul>
+              </div>
+             
             )}
           </div>
         )}

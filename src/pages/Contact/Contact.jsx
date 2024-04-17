@@ -12,7 +12,7 @@ const Contact = () => {
       const { latitude, longitude } = position.coords;
       setUserLocation([latitude, longitude]);
     });
-  }, []); // Run only once on component mount
+  }, []); 
 
   return (
     <div className="min-h-screen max-w-7xl mx-auto mt-16">
@@ -32,7 +32,7 @@ const Contact = () => {
               Fill in the form to start a conversation with us
             </p>
             <div className="space-y-4 ">
-              <div className="w-1/2">
+              <div className="">
                 <MapContainer
                   center={userLocation || [51.505, -0.09]} // Use user's location if available, else use default center
                   zoom={13}
@@ -98,7 +98,7 @@ const Contact = () => {
             </label>
             <button
               type="button"
-              className="self-center px-8 py-3 text-lg rounded  hover:ring  btn  bg-[#2f400e] hover:bg-[#2f400e] text-white "
+              className="self-center w-full px-8 py-3 text-lg rounded    btn  bg-[#ECECFF] text-black "
             >
               Submit
             </button>

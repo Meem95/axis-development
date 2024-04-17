@@ -39,7 +39,7 @@ const Profile = () => {
               {/* Twitter icon */}
             </svg>
           </a>
-          <a href="#" className="p-2 rounded-md text-gray-100 hover:text-violet-400">
+          <a href="#" className="p-2 mb-5 rounded-md text-gray-100 hover:text-violet-400">
             <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 fill-current">
               {/* Email icon */}
             </svg>

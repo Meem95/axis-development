@@ -1,14 +1,16 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import 'animate.css';
 import {updateProfile } from "firebase/auth";
 import { Helmet } from "react-helmet";
+import { FaEye } from "react-icons/fa";
 const Register = () => {
     
     const { createUser } = useContext(AuthContext);
+    const [showPass, setShowPass] = useState(false);
     const location = useLocation();
     const navigate = useNavigate();
     const handleRegister = (e) => {
@@ -20,6 +22,7 @@ const Register = () => {
     const photoURL = form.get("photo");
     const email = form.get("email");
     const password = form.get("password");
+    
     console.log(displayName, photoURL, email, password);
     
      // Password validation
@@ -50,6 +53,12 @@ const Register = () => {
                 console.error(error)
             })
   };
+  const togglePasswordVisibility = () => {
+    
+    setShowPass(!showPass);
+    console.log(showPass)
+  };
+  console.log(showPass)
   return (
     <div>
     <Helmet>
@@ -60,7 +69,7 @@ const Register = () => {
             <span >Please Registration</span>
           </div>
         </div>
-        <form onSubmit={handleRegister} className=" md:w-3/4 lg:w-1/2 mx-auto">
+        <form onSubmit={handleRegister} className=" md:w-3/4 lg:w-1/2 mx-auto p-4">
           <div className="form-control">
             <label className="label">
               <span className="label-text">Name</span>
@@ -97,25 +106,28 @@ const Register = () => {
               className="input input-bordered"
             />
           </div>
-          <div className="form-control">
-            <label className="label">
+          <div className="form-control relative">
+            <label className=" label">
               <span className="label-text">Password</span>
             </label>
             <input
-              type="password"
+              type={showPass ? "text" : "password"}
               required
               name="password"
               placeholder="Password"
               className="input input-bordered"
             />
-            <label className="label">
-              <a href="#" className="label-text-alt link link-hover">
-                Forgot password?
-              </a>
-            </label>
+            <button
+              type="button"
+              onClick={togglePasswordVisibility}
+              className="absolute inset-y-0 right-0 mt-8 flex items-center  p-3 text-gray-600 hover:text-gray-900"
+            >
+              {showPass ? <FaEye /> : <FaEye />}
+            </button>
+          
           </div>
           <div className="form-control mt-6">
-            <button className="btn bg-[#ECECFF] text-black">Register</button>
+            <button className="btn bg-[#ECECFF] text-black">Registration</button>
           </div>
         </form>
         <p className="text-center mt-4 mb-6">
