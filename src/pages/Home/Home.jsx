@@ -7,6 +7,7 @@ import Subscription from "../Subscription/Subscription";
 import Residentials from "../Residentials/Residentials";
 
 import 'animate.css';
+import { Helmet } from "react-helmet";
 
 
 const Home = () => {
@@ -14,7 +15,9 @@ const Home = () => {
     console.log(residentials)
   return (
     <div className=" m-0 p-0">
-   
+   <Helmet>
+   <title> Axis | Home</title>
+   </Helmet>
       <div>
         <Slider></Slider>
       </div>

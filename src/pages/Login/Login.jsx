@@ -5,13 +5,14 @@ import { AuthContext } from "../../providers/AuthProvider";
 import { GithubAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 import app from "../../firebase/firebase.config";
 import { GoogleAuthProvider } from "firebase/auth";
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import 'animate.css';
+import { Helmet } from "react-helmet";
 
 
 const Login = () => {
-  const [user,setUser] = useState(null);
+  const [user ,setUser] = useState(null);
   const [showPassword, setShowPassword] = useState(false);
   const { signIn } = useContext(AuthContext);
   const location = useLocation();
@@ -29,7 +30,7 @@ const Login = () => {
       const loggedInUser = result.user;
       console.log(loggedInUser);
       setUser(loggedInUser);
-      
+      toast.success('Login successful!');
       navigate(location?.state ? location.state : '/');
     }).catch((error) => {
       
@@ -44,6 +45,7 @@ const Login = () => {
         const loggedInUser = result.user;
         console.log(loggedInUser);
         setUser(loggedInUser);
+        toast.success('Login successful!');
         navigate(location?.state ? location.state : '/');
       }).catch((error) => {
         
@@ -79,7 +81,9 @@ const Login = () => {
     <div>
   
       <div>
-     
+      <Helmet>
+   <title> Axis | Home</title>
+   </Helmet>
         <div className="px-8 py-2 bg-[#1313130D] text-black ">
           <div className="py-2 font-bold text-center text-2xl animate__animated animate__bounce">
             <span>Please Login</span>

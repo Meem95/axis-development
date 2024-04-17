@@ -6,6 +6,7 @@ import { getAuth, updateProfile } from "firebase/auth";
 import 'animate.css';
 import app from '../../firebase/firebase.config';
 import { useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
 
 const EditProfile = () => {
   const auth = getAuth(app);
@@ -19,29 +20,12 @@ const EditProfile = () => {
   }, []);
 
   const {register,handleSubmit} = useForm();
-  // const handleNameChange = (e) => {
-  //   setName(e.target.name.value);
-  //   setPhoto(e.target.photo.value);
-  // };
-
-  // const handleSubmit = (e) => {
-  //   const name = e.target.name.value;
-  //   const photo = e.target.photo.value;
-  //   e.preventDefault();
-  //   console.log(name,photo);
-  //   updateProfile(auth.currentUser,{ displayName: name , photoURL:photo})
-  //     .then(() => {
-  //       console.log('Name updated successfully:', name);
-  //     })
-  //     .catch((error) => {
-  //       console.error('Error updating name:', error);
-  //     });
-  // };
 
 
   const formHandle = (data) =>{
     updateProfile(auth.currentUser,{ displayName: data.name , photoURL:data.photo})
       .then(() => {
+        toast.success('Update successful!');
         console.log('Name updated successfully:', data.name);
       })
       .catch((error) => {
@@ -50,7 +34,7 @@ const EditProfile = () => {
   }
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-900 text-gray-100">
+    <div className="flex justify-center items-center h-screen  text-gray-100">
       <div
         className="max-w-md w-full p-6 space-y-4 bg-gray-900 text-gray-100 border border-gray-800 rounded-lg shadow-lg"
         data-aos="fade-up"
