@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet';
 import { Link, useLoaderData, useParams } from 'react-router-dom';
 
 const ResidentialDetails = () => {
@@ -8,6 +9,9 @@ const ResidentialDetails = () => {
 
     return (
         <div className="container mx-auto py-8">
+        <Helmet>
+            <title> Axis | {bk.segment_name} </title>
+            </Helmet>
             <div className="max-w-7xl mx-auto shadow-lg">
                 <img src={bk.image} alt={bk.estate_title} className="w-full h-full object-cover" />
                 <div className="p-6">
@@ -39,7 +43,7 @@ const ResidentialDetails = () => {
                 </div>
                 <div className="bg-gray-100 p-6">
                     <h3 className="text-xl font-semibold mb-4">Additional Information:</h3>
-                    <p>Discover more about this property's unique features, amenities, and lifestyle offerings. Gain insights into what makes this residence an exceptional choice for your next home. Explore additional details to envision your ideal living experience.</p>
+                    <p>Discover more about this propertys unique features, amenities, and lifestyle offerings. Gain insights into what makes this residence an exceptional choice for your next home. Explore additional details to envision your ideal living experience.</p>
                 </div>
                 <div className="text-center mt-8 mb-6">
                 <Link to='/contact'><button className="bg-[#2f400e] hover:bg-[#2f400e] mb-6 text-white font-bold py-2 px-4 rounded">

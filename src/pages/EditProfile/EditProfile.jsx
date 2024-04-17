@@ -1,12 +1,13 @@
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { useEffect, useState, useContext } from 'react';
+import { useEffect, useContext } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 import { getAuth, updateProfile } from "firebase/auth";
 import 'animate.css';
 import app from '../../firebase/firebase.config';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
+import { Helmet } from 'react-helmet';
 
 const EditProfile = () => {
   const auth = getAuth(app);
@@ -34,7 +35,10 @@ const EditProfile = () => {
   }
 
   return (
-    <div className="flex justify-center items-center h-screen  text-gray-100">
+    <div className="flex justify-center items-center mt-8 text-gray-100">
+    <Helmet>
+   <title> Axis | Edit Profile</title>
+   </Helmet>
       <div
         className="max-w-md w-full p-6 space-y-4 bg-gray-900 text-gray-100 border border-gray-800 rounded-lg shadow-lg"
         data-aos="fade-up"

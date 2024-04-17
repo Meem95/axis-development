@@ -3,6 +3,7 @@ import { AuthContext } from '../../providers/AuthProvider';
 import userDefaultPic from '../../assets/images/user.png';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; 
+import { Helmet } from 'react-helmet';
 
 AOS.init();
 const Profile = () => {
@@ -10,6 +11,9 @@ const Profile = () => {
 
   return (
     <div className="flex justify-center items-center mt-12  text-gray-100">
+    <Helmet>
+   <title> Axis | Profile</title>
+   </Helmet>
       <div data-aos="fade-top"
      data-aos-duration="1500" className="max-w-md w-full p-6 space-y-4 bg-gray-900 text-gray-100 border border-gray-800 rounded-lg shadow-lg">
         <img data-aos="fade-top"

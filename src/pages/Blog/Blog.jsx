@@ -1,4 +1,5 @@
 
+import { Helmet } from 'react-helmet';
 import { useLoaderData } from 'react-router-dom';
 
 const Blog = () => {
@@ -6,6 +7,9 @@ const Blog = () => {
   const blogData = useLoaderData();
   return (
     <div  className="min-h-screen max-w-7xl mx-auto my-8" >
+    <Helmet>
+   <title> Axis | Blog</title>
+   </Helmet>
     <div className="px-8 py-2 bg-[#1313130D] text-black mb-10">
         <div className="py-2 font-bold text-center text-2xl animate__animated animate__bounce">
           <span>Blogs</span>

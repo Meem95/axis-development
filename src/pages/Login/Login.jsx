@@ -82,7 +82,7 @@ const Login = () => {
   
       <div>
       <Helmet>
-   <title> Axis | Home</title>
+   <title> Axis | Login</title>
    </Helmet>
         <div className="px-8 py-2 bg-[#1313130D] text-black ">
           <div className="py-2 font-bold text-center text-2xl animate__animated animate__bounce">

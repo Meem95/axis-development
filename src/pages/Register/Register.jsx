@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import 'animate.css';
 import {updateProfile } from "firebase/auth";
+import { Helmet } from "react-helmet";
 const Register = () => {
     
     const { createUser } = useContext(AuthContext);
@@ -51,9 +52,12 @@ const Register = () => {
   };
   return (
     <div>
+    <Helmet>
+   <title> Axis | Registration</title>
+   </Helmet>
         <div className="px-8 py-2 bg-[#1313130D] text-black ">
           <div className="py-2 font-bold text-center text-2xl animate__animated animate__bounce">
-            <span >Please Register</span>
+            <span >Please Registration</span>
           </div>
         </div>
         <form onSubmit={handleRegister} className=" md:w-3/4 lg:w-1/2 mx-auto">

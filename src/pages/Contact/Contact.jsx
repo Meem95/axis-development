@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import '../../App.css';
+import { Helmet } from "react-helmet";
 
 const Contact = () => {
   const [userLocation, setUserLocation] = useState(null);
@@ -15,6 +16,9 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen max-w-7xl mx-auto mt-16">
+    <Helmet>
+   <title> Axis | Contact Us</title>
+   </Helmet>
       <div className="px-8 py-2 bg-[#1313130D] text-black ">
         <div className="py-2 font-bold text-center text-2xl animate__animated animate__bounce">
           <span>Contact Us</span>
