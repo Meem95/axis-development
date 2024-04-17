@@ -141,7 +141,7 @@ const Navbar = () => {
       </div>
 
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 space-x-3">
+        <ul className="menu menu-horizontal px-1 space-x-3 ">
           <NavLink
             to="/"
             className={({ isActive }) =>
@@ -150,7 +150,7 @@ const Navbar = () => {
                 : 'font-bold text-[#2f400e] mt-4'
             }
           >
-            Homeww
+            Home
           </NavLink>
           <NavLink
             to="/about"
