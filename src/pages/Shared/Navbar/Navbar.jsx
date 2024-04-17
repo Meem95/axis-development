@@ -3,7 +3,8 @@ import logo from '../../../assets/images/logo.png';
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../../providers/AuthProvider';
 import userDefaultPic from '../../../assets/images/user.png';
-
+import 'react-tooltip/dist/react-tooltip.css';
+import { Tooltip } from 'react-tooltip'
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   const [showDropdown, setShowDropdown] = useState(false);
@@ -70,6 +71,32 @@ const Navbar = () => {
               >
                 About Us
               </NavLink>
+              {
+                ! user ?
+                <NavLink to="/login" className={({ isActive }) =>
+                  isActive
+                  ? ' font-bold mt-4 '
+                    : 'font-bold  mt-4'
+                }
+              >
+           Blog
+          </NavLink> :
+          <NavLink
+                to="/blog"
+                className={({ isActive }) =>
+                  isActive
+                    ? 'text-[#2f400e] font-bold btn-outline btn-[#2f400e] btn '
+                    : 'font-bold text-[#2f400e] mt-4'
+                }
+              >
+                Blog
+              </NavLink>
+              }
+
+              
+
+
+
               <NavLink
                 to="/contact"
                 className={({ isActive }) =>
@@ -133,6 +160,32 @@ const Navbar = () => {
           >
             About Us
           </NavLink>
+
+
+          {
+                ! user ?
+                <NavLink to="/login" className={({ isActive }) =>
+                  isActive
+                    ? ' font-bold mt-4 '
+                    : 'font-bold  mt-4'
+                }
+              >
+           Blog
+          </NavLink> :
+          <NavLink
+                to="/blog"
+                className={({ isActive }) =>
+                  isActive
+                    ? 'text-[#2f400e] font-bold btn-outline btn-[#2f400e] btn '
+                    : 'font-bold text-[#2f400e] mt-4'
+                }
+              >
+                Blog
+              </NavLink>
+              }
+
+
+
           <NavLink
             to="/contact"
             className={({ isActive }) =>
@@ -176,15 +229,23 @@ const Navbar = () => {
           </Link>
         ) : (
           <div className="dropdown">
-            <label
+          <label
               tabIndex={0}
               className="btn btn-ghost btn-circle avatar"
               onClick={() => toggleDropdown(-120)}
+            
             >
-              <div className="w-16 rounded-full">
-                <img src={user?.photoURL || userDefaultPic } alt="User Avatar" />
+              <div className="w-16 rounded-full my-anchor-element">
+                <img src={user?.photoURL || userDefaultPic} alt="User Avatar"   
+               />
+             
               </div>
+              
             </label>
+            <Tooltip anchorSelect=".my-anchor-element" className='z-30'  content= {user?.displayName || 'User'}>
+             
+             </Tooltip>
+            
             {showDropdown && (
               <ul
                 className="menu menu-sm dropdown-content z-30 mt-3 bg-[#1313130D] w-36 p-2 shadow bg-base-100 rounded-box"

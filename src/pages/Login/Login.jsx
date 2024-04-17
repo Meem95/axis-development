@@ -5,8 +5,11 @@ import { AuthContext } from "../../providers/AuthProvider";
 import { GithubAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 import app from "../../firebase/firebase.config";
 import { GoogleAuthProvider } from "firebase/auth";
-
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import 'animate.css';
+
+
 const Login = () => {
   const [user,setUser] = useState(null);
   const [showPassword, setShowPassword] = useState(false);
@@ -26,6 +29,7 @@ const Login = () => {
       const loggedInUser = result.user;
       console.log(loggedInUser);
       setUser(loggedInUser);
+      
       navigate(location?.state ? location.state : '/');
     }).catch((error) => {
       
@@ -57,13 +61,15 @@ const Login = () => {
     signIn(email, password)
         .then(result => {
             console.log(result.user);
-
+            toast.success('Login successful!');
             // navigate after login
             navigate(location?.state ? location.state : '/');
 
         })
         .catch(error => {
             console.error(error);
+            toast.error('Invalid email or password. Please try again.');
+            
         })
   };
   const togglePasswordVisibility = () => {
@@ -71,7 +77,9 @@ const Login = () => {
   };
   return (
     <div>
+  
       <div>
+     
         <div className="px-8 py-2 bg-[#1313130D] text-black ">
           <div className="py-2 font-bold text-center text-2xl animate__animated animate__bounce">
             <span>Please Login</span>

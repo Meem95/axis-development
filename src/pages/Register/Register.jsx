@@ -1,34 +1,53 @@
-import { Link, Navigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useContext } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
-
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import 'animate.css';
+import {updateProfile } from "firebase/auth";
 const Register = () => {
- 
+    
     const { createUser } = useContext(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate();
     const handleRegister = (e) => {
     e.preventDefault();
     console.log(e.currentTarget);
     const form = new FormData(e.currentTarget);
 
-    const name = form.get("name");
-    const photo = form.get("photo");
+    const displayName = form.get("displayName");
+    const photoURL = form.get("photo");
     const email = form.get("email");
     const password = form.get("password");
-    console.log(name, photo, email, password);
-
+    console.log(displayName, photoURL, email, password);
+    
+     // Password validation
+     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+     if (!passwordRegex.test(password)) {
+         toast.error('Password must have at least one uppercase letter, one lowercase letter, and be at least 6 characters long.');
+         return;
+     }
+     
     //create user
     createUser(email, password)
-        .then(result => {
-          updateUserProfile( name,photo)
-          .then(()=> {
-            Navigate(form)
-          })
-            console.log(result.user)
-        })
-        .catch(error => {
-            console.error(error)
-        })
+            .then(result => {
+              console.log(result);
+              updateProfile(result.user,
+                 {displayName,photoURL}
+                 
+              ).then(() => {
+                toast.success('Registration successful!');
+                // navigate after login
+                navigate(location?.state ? location.state : '/');
+              }).catch((error) => {
+                console.error(error)
+              });
+                console.log("value",result.user)
+               
+            })
+            .catch(error => {
+                console.error(error)
+            })
   };
   return (
     <div>
@@ -45,7 +64,7 @@ const Register = () => {
             <input
               type="text"
               required
-              name="name"
+              name="displayName"
               placeholder="Name"
               className="input input-bordered"
             />
@@ -92,10 +111,10 @@ const Register = () => {
             </label>
           </div>
           <div className="form-control mt-6">
-            <button className="btn btn-success bg-cyan-800">Register</button>
+            <button className="btn bg-[#ECECFF] text-black">Register</button>
           </div>
         </form>
-        <p className="text-center mt-4">
+        <p className="text-center mt-4 mb-6">
           Already have an account?{" "}
           <Link className="text-blue-600 font-bold" to="/login">
             Login

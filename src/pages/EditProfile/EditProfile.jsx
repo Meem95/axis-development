@@ -2,30 +2,52 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect, useState, useContext } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
-
+import { getAuth, updateProfile } from "firebase/auth";
 import 'animate.css';
+import app from '../../firebase/firebase.config';
+import { useForm } from 'react-hook-form';
+
 const EditProfile = () => {
+  const auth = getAuth(app);
   const { user } = useContext(AuthContext);
-  const [name, setName] = useState(user.displayName || '');
+  // const [name, setName] = useState(user.displayName || '');
+  // const [photo, setPhoto] = useState(user.photoURL || '');
+  
 
   useEffect(() => {
     AOS.init();
   }, []);
 
-  const handleNameChange = (e) => {
-    setName(e.target.value);
-  };
+  const {register,handleSubmit} = useForm();
+  // const handleNameChange = (e) => {
+  //   setName(e.target.name.value);
+  //   setPhoto(e.target.photo.value);
+  // };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    updateUserProfile({ displayName: name })
+  // const handleSubmit = (e) => {
+  //   const name = e.target.name.value;
+  //   const photo = e.target.photo.value;
+  //   e.preventDefault();
+  //   console.log(name,photo);
+  //   updateProfile(auth.currentUser,{ displayName: name , photoURL:photo})
+  //     .then(() => {
+  //       console.log('Name updated successfully:', name);
+  //     })
+  //     .catch((error) => {
+  //       console.error('Error updating name:', error);
+  //     });
+  // };
+
+
+  const formHandle = (data) =>{
+    updateProfile(auth.currentUser,{ displayName: data.name , photoURL:data.photo})
       .then(() => {
-        console.log('Name updated successfully:', name);
+        console.log('Name updated successfully:', data.name);
       })
       .catch((error) => {
         console.error('Error updating name:', error);
       });
-  };
+  }
 
   return (
     <div className="flex justify-center items-center h-screen bg-gray-900 text-gray-100">
@@ -34,8 +56,8 @@ const EditProfile = () => {
         data-aos="fade-up"
       >
         <h2 className="text-lg font-semibold sm:text-2xl animate__animated animate__bounce">Edit Profile</h2>
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
+        <form onSubmit={handleSubmit(formHandle)} className="space-y-4">
+        <div>
             <label htmlFor="name" className="block text-sm font-medium">
               Name
             </label>
@@ -43,12 +65,28 @@ const EditProfile = () => {
               type="text"
               id="name"
               name="name"
-              value={name}
-              onChange={handleNameChange}
+              defaultValue={user?.displayName}
+             {...register('name')}
               className="mt-1 p-2 w-full bg-gray-700 text-gray-100 border border-gray-700 rounded-md"
               required
             />
           </div>
+          <div>
+            <label htmlFor="name" className="block text-sm font-medium">
+              Image
+            </label>
+            <input
+              type="text"
+              id="photo"
+              name="photo"
+              defaultValue={user?.photoURL}
+              {...register('photo')}
+              className="mt-1 p-2 w-full bg-gray-700 text-gray-100 border border-gray-700 rounded-md"
+              required
+            />
+          </div>
+         
+        
          
           <button
             type="submit"

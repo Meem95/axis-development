@@ -8,11 +8,13 @@ import Residentials from "../Residentials/Residentials";
 
 import 'animate.css';
 
+
 const Home = () => {
     const residentials = useLoaderData();
     console.log(residentials)
   return (
     <div className=" m-0 p-0">
+   
       <div>
         <Slider></Slider>
       </div>

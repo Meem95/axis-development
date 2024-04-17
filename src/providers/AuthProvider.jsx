@@ -1,7 +1,8 @@
 import { createContext, useEffect, useState } from "react";
 import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
 import app from "../firebase/firebase.config";
-
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 export const AuthContext = createContext(null);
 const auth = getAuth(app);
 
@@ -11,18 +12,19 @@ const AuthProvider = ({ children }) => {
 
     const createUser = (email, password) => {
         setLoading(true);
-        return createUserWithEmailAndPassword(auth, email, password);
+        return createUserWithEmailAndPassword(auth, email, password );
     }
-    const updateUserProfile1 = (name, image) => {
-        updateProfile(auth.currentUser, {
-            displayName: name, 
-            photoURL: image
-          })
-    }
+    // const updateUserProfile = (name, image) => {
+    //     updateProfile(auth.currentUser, {
+    //         displayName: name, 
+    //         photoURL: image
+    //       })
+    // }
     
     const signIn = (email, password) => {
         setLoading(true);
         return signInWithEmailAndPassword(auth, email, password);
+        
     }
 
     const logOut = () => {
@@ -50,8 +52,11 @@ const AuthProvider = ({ children }) => {
     }
 
     return (
+        
         <AuthContext.Provider value={authInfo}>
-            {children}
+         {children}
+         <ToastContainer />
+           
         </AuthContext.Provider>
     );
 };

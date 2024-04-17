@@ -10,6 +10,8 @@ import ResidentialDetails from "../pages/ResidentialDetails/ResidentialDetails";
 import PrivateRoute from "./PrivateRoute";
 import EditProfile from "../pages/EditProfile/EditProfile";
 import Profile from "../pages/Profile/Profile";
+import Blog from "../pages/Blog/Blog";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter ([
     {
@@ -42,6 +44,11 @@ const router = createBrowserRouter ([
                
             },
             {
+                path: '/blog', 
+                element: <PrivateRoute><Blog></Blog></PrivateRoute>,
+                loader: () => fetch('/blog.json')
+            },
+            {
                 path: '/edit-profile', 
                 element: <PrivateRoute><EditProfile></EditProfile></PrivateRoute>,
                
@@ -53,6 +60,10 @@ const router = createBrowserRouter ([
             {
                 path: '/register',
                 element: <Register></Register>
+            },
+            {
+              path: '*',
+              element: <ErrorPage/>
             }
         ]
     }    
