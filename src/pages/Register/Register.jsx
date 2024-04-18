@@ -7,6 +7,7 @@ import 'animate.css';
 import {updateProfile } from "firebase/auth";
 import { Helmet } from "react-helmet";
 import { FaEye } from "react-icons/fa";
+import { GoEyeClosed } from "react-icons/go";
 const Register = () => {
     
     const { createUser } = useContext(AuthContext);
@@ -122,7 +123,7 @@ const Register = () => {
               onClick={togglePasswordVisibility}
               className="absolute inset-y-0 right-0 mt-8 flex items-center  p-3 text-gray-600 hover:text-gray-900"
             >
-              {showPass ? <FaEye /> : <FaEye />}
+              {showPass ? <GoEyeClosed /> :<FaEye />}
             </button>
           
           </div>

@@ -9,7 +9,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import 'animate.css';
 import { Helmet } from "react-helmet";
-
+import { GoEyeClosed } from "react-icons/go";
 
 const Login = () => {
   const [user ,setUser] = useState(null);
@@ -121,7 +121,7 @@ const Login = () => {
               onClick={togglePasswordVisibility}
               className="absolute inset-y-0 right-0 flex items-center mt-6 p-3 text-gray-600 hover:text-gray-900"
             >
-              {showPassword ? <FaEye /> : <FaEye />}
+              {showPassword ?  <GoEyeClosed /> :<FaEye />}
             </button>
           </div>
           <div className="form-control my-6">
